@@ -174,7 +174,7 @@ int bsearch(vector<int>& a, int target)
 }
 
 
-const int MAXN = 3e5 + 5; // Adjust based on problem constraints
+const int MAXN =5;//+ 3e5; // Adjust based on problem constraints
 ll fact[MAXN], invFact[MAXN];
 void precompute_factorials() 
 {
@@ -200,41 +200,13 @@ ll nCr(int n, int r)
 
 void solve()
 {
-    ll n,k,i,j,c=0,f=0;
+    ll n,i,j,c=0,f=0;
 
-    cin>>n>>k;
+    cin>>n;
 
-    vll a(n),b(n);
-    scanv(a);
-    scanv(b);
-  set<ll>s;
-    forl(i,0,n)
-    {
-        s.clear();
-        forl(j,i-k,i-1)
-        {
-            s.insert(a[j]);
-        }
-        forl(j,i-k,i-1)
-        {
-            if(b[j]==-1)continue;
-            else
-            {
-                auto it = s.find(b[j]);
-                if(it==s.end())
-                {
-                    f=1;
-                    break;
-                }
-            }
-        }
-        if(f==1)
-        break;
-    }
-    if(f==1)
-    cout<<"NO\n";
-    else
-    cout<<"YES\n";
+    forr(i,n,1)
+    cout<<i<<" ";
+    cout<<'\n';
 
 }
 
