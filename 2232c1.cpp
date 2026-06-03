@@ -200,11 +200,77 @@ ll nCr(int n, int r)
 
 void solve()
 {
-    ll n,i,j,c=0,f=0;
+    ll n,x,s,se,e,i,j,c=0,f=0;
+    str st;
 
-    
+    cin>>n>>x>>s;
+    cin>>st;
 
+    se=x*s;
+    f=0,e=x,j=0;
+    ll ex=0,in=0,am=0,ini=0,exi=0;
 
+    forl(i,0,n-1)
+    {
+        if(st[i]=='I')
+        ini++;
+        else if(st[i]=='E')
+        exi++;
+    }
+
+    forl(i,0,n-1)
+    { 
+        if(se<=0)break;
+        if(st[i]=='I')
+        ini--;
+        else if(st[i]=='E')
+        exi--;
+
+        if(st[i]=='I' && e>0)
+        {
+            in++;
+            se--;
+            e--;
+            c++;
+        }
+        else if(st[i]=='E' && in>0)
+        {
+            if(ex == (s-1)*in && e>0 && am>0)
+            {
+                am--;
+                in++;
+                c++;
+                se--;
+                e--;
+                
+            }
+            else if(ex<(s-1)*in)
+            {
+                ex++;
+                se--;
+                c++;
+            }
+        }
+        else if(st[i]=='A')
+        {
+            if((ex == (s-1)*in && e>0) || in==0 )
+            {
+                in++;
+                se--;
+                e--;
+                c++;
+            }
+            else if (ex< (s-1)*in)
+            {
+                ex++;
+                se--;
+                c++;
+                am++;
+            }
+        }
+    }
+
+    cout<<c<<'\n';
 
 }
 

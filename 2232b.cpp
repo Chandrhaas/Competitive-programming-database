@@ -202,10 +202,25 @@ void solve()
 {
     ll n,i,j,c=0,f=0;
 
-    
+    cin>>n;
+    vll a(n),ans(n);
+    scanv(a);
 
+    ans[0]=a[0];
+    c=a[0];
 
+   forl(i,1,n-1)
+   {
+        c+=a[i];
+        ll avg = c/(i+1);
+        //dbg(avg);
+        //if(ans[i-1]>avg)
+        ans[i]=min(avg,ans[i-1]);
+        // else
+        // a[i]=a[i-1];
+   }
 
+   printv(ans);
 }
 
 int main() 

@@ -200,23 +200,32 @@ ll nCr(int n, int r)
 
 void solve()
 {
-    ll n,i,j,c=0,f=0;
+    ll n,i,j,k=0,c=0,f=0;
 
     cin>>n;
     vll a(n);
-    map<ll,ll>m;
 
     scanv(a);
 
     sort(all(a));
 
-    forl(i,0,n-1)
-    m[a[i]]++;
+    i = a[((n+1)/2)-1];
+    dbg(i);
 
-    dbg(a[(n+1)/2]);
+    forl(j,0,n-1)
+    {
+        if(a[j] == i && f==0)
+        {
+            f=1;
+            c=j;
+        }
+        if (a[j]==i)
+        k=j;
 
+        dbg(j,c,k);
+    }
 
-    cout<<(n-m[a[((n+1)/2)-1]])/2<<'\n';
+    cout<<max(c,n-k-1)<<'\n';
 
 }
 
