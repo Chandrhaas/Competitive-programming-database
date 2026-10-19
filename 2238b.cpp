@@ -202,8 +202,6 @@ void solve()
 {
     ll n,i,j,c=0,f=0;
 
-    
-
 
 
 }
